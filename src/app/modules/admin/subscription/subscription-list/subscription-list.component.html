@@ -1,0 +1,53 @@
+<div class="m-container">
+    <div class="m-header">
+        <h3>Subscription List</h3>
+        <button class="btn btn-outline-primary btn-sm ml-1" (click)="createPlan()"><i class="fas fa-add"></i> Add
+        </button>
+    </div>
+    <div class="table-responsive">
+        <table class="m-table">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Subsciber Name</th>
+                    <th>Plan Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let subscription of subscriptionList;index as i">
+                    <td>{{i+1}}</td>
+                    <td>
+                        <img src="assets/img/profile.png" alt="" />
+                        <p class="user-name">{{subscription.member.text}} </p>
+                    </td>
+                    <td>{{subscription.plan.text}}</td>
+                    <td>{{subscription.startDate | date: 'dd-MMM-yyyy'}}</td>
+                    <td>{{subscription.endDate | date: 'dd-MMM-yyyy'}}</td>
+                    <td><i class="fas fa-edit btn-outline-primary curor-pointer"
+                            (click)="editSubscription(subscription)"></i>
+                        <i class="fa-solid fa-trash btn-outline-danger ml-2 curor-pointer"
+                            (click)="confirmationDelete(subscription)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="!subscriptionList?.length" class="text-center">
+        <span> No data found...</span>
+    </div>
+</div>
+<ng-template #confirmation let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+    </div>
+    <div class="modal-body">
+        Are you sure to delete this subscription?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary btn-sm" (click)="closePopup()">No</button>
+        <button type="button" class="btn btn-outline-danger btn-sm ml-2" (click)="deleteSubscription()">Yes</button>
+    </div>
+</ng-template>

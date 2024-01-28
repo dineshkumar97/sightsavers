@@ -1,30 +1,40 @@
-import { NgModule } from '@angular/core';
-import { PathLocationStrategy, LocationStrategy } from '@angular/common';
-import { AppComponent } from './app.component';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { AuthInterceptorInterceptor } from './auth-interceptor.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgToastModule } from 'ng-angular-popup';
 import { AppRoutingModule } from './app-routing.module';
-import { AppLayoutModule } from './layout/app.layout.module';
-import { NotfoundComponent } from './demo/components/notfound/notfound.component';
-import { ProductService } from './demo/service/product.service';
-import { CountryService } from './demo/service/country.service';
-import { CustomerService } from './demo/service/customer.service';
-import { EventService } from './demo/service/event.service';
-import { IconService } from './demo/service/icon.service';
-import { NodeService } from './demo/service/node.service';
-import { PhotoService } from './demo/service/photo.service';
-
+import { AppComponent } from './app.component';
+import { LoginComponent } from './layout/login/login.component';
+import { SignupComponent } from './layout/signup/signup.component';
 @NgModule({
-    declarations: [AppComponent, NotfoundComponent],
-    imports: [AppRoutingModule, AppLayoutModule],
-    providers: [
-        { provide: LocationStrategy, useClass: PathLocationStrategy },
-        CountryService,
-        CustomerService,
-        EventService,
-        IconService,
-        NodeService,
-        PhotoService,
-        ProductService,
-    ],
-    bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
+    NgToastModule
+
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
 })
-export class AppModule {}
+export class AppModule { }

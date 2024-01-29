@@ -7,13 +7,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastModule } from 'ng-angular-popup';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './layout/login/login.component';
-import { SignupComponent } from './layout/signup/signup.component';
+import { AppLayoutModule } from './layout/app.layout.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +19,8 @@ import { SignupComponent } from './layout/signup/signup.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    NgToastModule
+    NgToastModule,
+    AppLayoutModule,
 
   ],
   providers: [

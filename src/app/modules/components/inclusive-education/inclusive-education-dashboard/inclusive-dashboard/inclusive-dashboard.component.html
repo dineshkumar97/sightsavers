@@ -5,25 +5,25 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="p-fluid p-formgrid grid">
-				<div class="col-12 md:col-4">
+				<div class="col-12 md:col-2">
 					<label htmlFor="firstname2">State</label>
-					<input pInputText id="firstname2" type="text" />
+					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
 				</div>
-				<div class="col-12 md:col-4">
-					<label htmlFor="lastname2">District</label>
-					<input pInputText id="lastname2" type="text" />
+				<div class="col-12 md:col-2">
+					<label htmlFor="firstname2">District</label>
+					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
 				</div>
-				<h5>AutoComplete</h5>
-				<p-autoComplete [(ngModel)]="selectedCountryAdvanced" [suggestions]="filteredCountries"  field="name" [dropdown]="true">
-				</p-autoComplete>
-				<div class="col-12 md:col-4">
-					<h5>Calendar</h5>
-					<p-calendar [showIcon]="true" inputId="icon"></p-calendar>
-
+				<div class="col-12 md:col-2">
+					<label htmlFor="firstname2">Block</label>
+					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
 				</div>
-				<div class="col-12 md:col-4">
-					<h5>Calendar</h5>
-					<p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+				<div class="col-12 md:col-2">
+					<label htmlFor="firstname2">Start Date</label>
+					<p-calendar [iconDisplay]="'input'" [showIcon]="true"></p-calendar>
+				</div>
+				<div class="col-12 md:col-2">
+					<label htmlFor="firstname2">End Date</label>
+					<p-calendar [iconDisplay]="'input'" [showIcon]="true"></p-calendar>
 				</div>
 				<div class="col-12 md:col-2">
 					<label htmlFor="lastname2" style="visibility: hidden;">Save</label>

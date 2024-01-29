@@ -27687,3 +27687,9 @@ pre.app-code code {
   display: block;
   font-family: monaco, Consolas, monospace
 }
+.p-dropdown-items{
+  padding-left: 0 !important;
+}
+svg.p-dropdown-clear-icon.p-icon {
+  display: none;
+}

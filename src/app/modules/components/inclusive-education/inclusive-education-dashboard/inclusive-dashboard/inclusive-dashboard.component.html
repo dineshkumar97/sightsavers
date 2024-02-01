@@ -7,15 +7,18 @@
 			<div class="p-fluid p-formgrid grid">
 				<div class="col-12 md:col-2">
 					<label htmlFor="firstname2">State</label>
-					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
+					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true"
+						placeholder="Select a City"></p-dropdown>
 				</div>
 				<div class="col-12 md:col-2">
 					<label htmlFor="firstname2">District</label>
-					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
+					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true"
+						placeholder="Select a City"></p-dropdown>
 				</div>
 				<div class="col-12 md:col-2">
 					<label htmlFor="firstname2">Block</label>
-					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
+					<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true"
+						placeholder="Select a City"></p-dropdown>
 				</div>
 				<div class="col-12 md:col-2">
 					<label htmlFor="firstname2">Start Date</label>
@@ -25,18 +28,17 @@
 					<label htmlFor="firstname2">End Date</label>
 					<p-calendar [iconDisplay]="'input'" [showIcon]="true"></p-calendar>
 				</div>
-				<div class="col-12 md:col-2">
+				<div class="col-12 md:col-1">
 					<label htmlFor="lastname2" style="visibility: hidden;">Save</label>
-					<button pButton pRipple label="Submit"></button>
+					<button pButton pRipple class="save-btn">Search</button>
 				</div>
 
 			</div>
 			<div class="grid">
-				<div class="col-12 lg:col-6 xl:col-3">
+				<!-- <div class="col-12 lg:col-6 xl:col-3">
 					<div class="card mb-0">
 						<div class="flex justify-content-between mb-3">
 							<div>
-								<span class="block text-500 font-medium mb-3">Orders</span>
 								<div class="text-900 font-medium text-xl">152</div>
 							</div>
 							<div class="flex align-items-center justify-content-center bg-blue-100 border-round"
@@ -44,127 +46,106 @@
 								<i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
 							</div>
 						</div>
-						<span class="text-green-500 font-medium">24 new </span>
+						<span class="text-700 font-medium">Total </span>
 						<span class="text-500">since last visit</span>
 					</div>
-				</div>
+				</div> -->
+
 				<div class="col-12 lg:col-6 xl:col-3">
-					<div class="card mb-0">
-						<div class="flex justify-content-between mb-3">
-							<div>
-								<span class="block text-500 font-medium mb-3">Revenue</span>
-								<div class="text-900 font-medium text-xl">$2.100</div>
-							</div>
-							<div class="flex align-items-center justify-content-center bg-orange-100 border-round"
-								[ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-								<i class="pi pi-map-marker text-orange-500 text-xl"></i>
-							</div>
+					<div class="small-box" style="background-color:#80276C; color:#ffffff;">
+						<div class="inner">
+							<h3 style="margin-top:0px!important">0</h3>
+							<p style="font-size:14px;">Total <br><small>CVIs </small></p>
 						</div>
-						<span class="text-green-500 font-medium">%52+ </span>
-						<span class="text-500">since last week</span>
+						<div class="icon">
+							<i class="fa fa-child"></i>
+						</div>
 					</div>
 				</div>
 				<div class="col-12 lg:col-6 xl:col-3">
-					<div class="card mb-0">
-						<div class="flex justify-content-between mb-3">
-							<div>
-								<span class="block text-500 font-medium mb-3">Customers</span>
-								<div class="text-900 font-medium text-xl">28441</div>
-							</div>
-							<div class="flex align-items-center justify-content-center bg-cyan-100 border-round"
-								[ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-								<i class="pi pi-inbox text-cyan-500 text-xl"></i>
-							</div>
+					<div class="small-box" style="background-color:#80276C; color:#ffffff;">
+						<div class="inner">
+							<h3 style="margin-top:0px!important">0</h3>
+							<p style="font-size:14px;">Total <br><small>CVIs </small></p>
 						</div>
-						<span class="text-green-500 font-medium">520 </span>
-						<span class="text-500">newly registered</span>
+						<div class="icon">
+							<i class="fa fa-child"></i>
+						</div>
 					</div>
 				</div>
 				<div class="col-12 lg:col-6 xl:col-3">
-					<div class="card mb-0">
-						<div class="flex justify-content-between mb-3">
-							<div>
-								<span class="block text-500 font-medium mb-3">Comments</span>
-								<div class="text-900 font-medium text-xl">152 Unread</div>
-							</div>
-							<div class="flex align-items-center justify-content-center bg-purple-100 border-round"
-								[ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-								<i class="pi pi-comment text-purple-500 text-xl"></i>
-							</div>
+					<div class="small-box" style="background-color:#80276C; color:#ffffff;">
+						<div class="inner">
+							<h3 style="margin-top:0px!important">0</h3>
+							<p style="font-size:14px;">Total <br><small>CVIs </small></p>
 						</div>
-						<span class="text-green-500 font-medium">85 </span>
-						<span class="text-500">responded</span>
+						<div class="icon">
+							<i class="fa fa-child"></i>
+						</div>
 					</div>
 				</div>
 
+				<div class="col-12 lg:col-6 xl:col-3">
+					<div class="small-box" style="background-color:#80276C; color:#ffffff;">
+						<div class="inner">
+							<h3 style="margin-top:0px!important">0</h3>
+							<p style="font-size:14px;">Total <br><small>CVIs </small></p>
+						</div>
+						<div class="icon">
+							<i class="fa fa-child"></i>
+						</div>
+					</div>
+				</div>
 			</div>
+
 			<div class="grid">
 				<div class="col-12 lg:col-6 xl:col-3">
-					<div class="card mb-0">
-						<div class="flex justify-content-between mb-3">
-							<div>
-								<span class="block text-500 font-medium mb-3">Orders</span>
-								<div class="text-900 font-medium text-xl">152</div>
-							</div>
-							<div class="flex align-items-center justify-content-center bg-blue-100 border-round"
-								[ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-								<i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
-							</div>
+					<div class="small-box" style="background-color:#80276C; color:#ffffff;">
+						<div class="inner">
+							<h3 style="margin-top:0px!important">0</h3>
+							<p style="font-size:14px;">Total <br><small>CVIs </small></p>
 						</div>
-						<span class="text-green-500 font-medium">24 new </span>
-						<span class="text-500">since last visit</span>
+						<div class="icon">
+							<i class="fa fa-child"></i>
+						</div>
 					</div>
 				</div>
 				<div class="col-12 lg:col-6 xl:col-3">
-					<div class="card mb-0">
-						<div class="flex justify-content-between mb-3">
-							<div>
-								<span class="block text-500 font-medium mb-3">Revenue</span>
-								<div class="text-900 font-medium text-xl">$2.100</div>
-							</div>
-							<div class="flex align-items-center justify-content-center bg-orange-100 border-round"
-								[ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-								<i class="pi pi-map-marker text-orange-500 text-xl"></i>
-							</div>
+					<div class="small-box" style="background-color:#80276C; color:#ffffff;">
+						<div class="inner">
+							<h3 style="margin-top:0px!important">0</h3>
+							<p style="font-size:14px;">Total <br><small>CVIs </small></p>
 						</div>
-						<span class="text-green-500 font-medium">%52+ </span>
-						<span class="text-500">since last week</span>
+						<div class="icon">
+							<i class="fa fa-child"></i>
+						</div>
 					</div>
 				</div>
 				<div class="col-12 lg:col-6 xl:col-3">
-					<div class="card mb-0">
-						<div class="flex justify-content-between mb-3">
-							<div>
-								<span class="block text-500 font-medium mb-3">Customers</span>
-								<div class="text-900 font-medium text-xl">28441</div>
-							</div>
-							<div class="flex align-items-center justify-content-center bg-cyan-100 border-round"
-								[ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-								<i class="pi pi-inbox text-cyan-500 text-xl"></i>
-							</div>
+					<div class="small-box" style="background-color:#80276C; color:#ffffff;">
+						<div class="inner">
+							<h3 style="margin-top:0px!important">0</h3>
+							<p style="font-size:14px;">Total <br><small>CVIs </small></p>
 						</div>
-						<span class="text-green-500 font-medium">520 </span>
-						<span class="text-500">newly registered</span>
-					</div>
-				</div>
-				<div class="col-12 lg:col-6 xl:col-3">
-					<div class="card mb-0">
-						<div class="flex justify-content-between mb-3">
-							<div>
-								<span class="block text-500 font-medium mb-3">Comments</span>
-								<div class="text-900 font-medium text-xl">152 Unread</div>
-							</div>
-							<div class="flex align-items-center justify-content-center bg-purple-100 border-round"
-								[ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-								<i class="pi pi-comment text-purple-500 text-xl"></i>
-							</div>
+						<div class="icon">
+							<i class="fa fa-child"></i>
 						</div>
-						<span class="text-green-500 font-medium">85 </span>
-						<span class="text-500">responded</span>
 					</div>
 				</div>
 
+				<div class="col-12 lg:col-6 xl:col-3">
+					<div class="small-box" style="background-color:#80276C; color:#ffffff;">
+						<div class="inner">
+							<h3 style="margin-top:0px!important">0</h3>
+							<p style="font-size:14px;">Total <br><small>CVIs </small></p>
+						</div>
+						<div class="icon">
+							<i class="fa fa-child"></i>
+						</div>
+					</div>
+				</div>
 			</div>
+
 		</div>
 	</div>
 </div>

@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InclusiveDashboardComponent } from './inclusive-dashboard/inclusive-dashboard.component';
 
 const routes: Routes = [
-  {
-    path: 'dashboard', data: { breadcrumb: '' }, loadChildren:
-      () => import('./inclusive-education-dashboard/inclusive-education-dashboard.module').
-        then(m => m.InclusiveEducationDashboardModule)
-  },
+  { path: 'dashboard', component: InclusiveDashboardComponent }
 
 ];
 

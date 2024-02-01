@@ -14,7 +14,27 @@
   text-decoration: none;
   transition: 0.3s linear;
 }
-
+:root {
+  --poppins: "Poppins", "sans-serif";
+  --lato: "Lato", "sans-serif";
+  --light: #f9f9f9;
+  --blue: #3c91e6;
+  --cancel: #5c636a;
+  --light-blue: #cfe8ff;
+  --grey: #eee;
+  --drak-grey: #aaaaaa;
+  --dark: #342e37;
+  --red: #db504a;
+  --yellow: #ffce26;
+  --orange: #fd7238;
+  --light-orange: #ffe0d3;
+  --edit-icon-blue: #0d6efd;
+  --edit-icon-grey: #e9ecef;
+  --delete-icon-light: #f8f9fa;
+  --delete-icon-red: #dc3545;
+  --white-color:#ffffff;
+  --purple-bg:#80276C;
+}
 html {
   overflow-x: hidden;
 }
@@ -27708,8 +27728,8 @@ svg.p-dropdown-clear-icon.p-icon {
   display: block;
   margin-bottom: 20px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  background-color: #80276C;
-  color: #ffffff;
+  background-color:var(--purple-bg);
+  color:var(--white-color);
 }
 .small-box>.inner {
   padding: 10px;
@@ -27721,6 +27741,7 @@ svg.p-dropdown-clear-icon.p-icon {
   white-space: nowrap;
   padding: 0;
   margin-top: 0px!important;
+  color:var(--white-color);
 }
 .small-box .icon {
   -webkit-transition: all .3s linear;
@@ -27736,4 +27757,8 @@ svg.p-dropdown-clear-icon.p-icon {
 
 .small-box:hover .icon {
   font-size: 95px;
+}
+
+.font-size-5{
+  font-size: 5rem;
 }

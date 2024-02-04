@@ -15,6 +15,7 @@ import { AuthGuard } from './authservice/auth.guard';
                     // ,canActivate: [AuthGuard]
                     { path: '', loadChildren: () => import('./modules/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
                     { path: 'inclusive', loadChildren: () => import('./modules/components/inclusive-education/inclusive-education.module').then(m => m.InclusiveEducationModule) },
+                    { path: 'rural', loadChildren: () => import('./modules/components/dataEntry/RuralEyeHealth/rural-eye-health.module').then(m => m.RuralEyeHealthModule) },
                 ]
             },
             { path: '**', redirectTo: '/notfound' },

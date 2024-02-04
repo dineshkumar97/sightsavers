@@ -93,8 +93,8 @@ export class AppMenuComponent implements OnInit {
                             {
                                 label: 'Rural Eye Health', icon: 'pi pi-fw pi-circle',
                                 items: [
-                                    { label: 'EH Infrastructure', icon: 'pi pi-fw pi-circle' },
-                                    { label: 'Outreach', icon: 'pi pi-fw pi-circle' },
+                                    { label: 'EH Infrastructure', icon: 'pi pi-fw pi-circle',routerLink: ['rural/eye-health'] },
+                                    { label: 'Outreach', icon: 'pi pi-fw pi-circle' ,routerLink: ['rural/out-reach/out-reach-create']},
                                     { label: 'Vision Center', icon: 'pi pi-fw pi-circle' },
                                     {
                                         label: 'Base Hospital', icon: 'pi pi-fw pi-circle',

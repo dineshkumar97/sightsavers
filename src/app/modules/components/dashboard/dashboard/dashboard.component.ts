@@ -30,9 +30,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           { label: 'Add New', icon: 'pi pi-fw pi-plus' },
           { label: 'Remove', icon: 'pi pi-fw pi-minus' }
       ];
-      this.login.sideMenuList().subscribe((respone:any)=>{
-        console.log('ress',respone)
-      })
+   
   }
 
   initChart() {

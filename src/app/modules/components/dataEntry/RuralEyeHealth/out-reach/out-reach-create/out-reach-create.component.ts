@@ -14,6 +14,7 @@ export class OutReachCreateComponent implements OnInit {
   pwdNonPwd: any;
   nameOfDonor: any;
   outReachForm: FormGroup;
+  outReachForm2: FormGroup;
   constructor(private fb: FormBuilder) {
   }
   ngOnInit(): void {
@@ -71,12 +72,45 @@ export class OutReachCreateComponent implements OnInit {
           })
         })
       }),
-      
+      spectaclesDispensed: this.fb.group({
+        noOfPersonsDispensedSpectaclesFree: this.fb.group({
+          adult18Greater: this.fb.group({
+            male: [''],
+            female: [''],
+            transgender: ['']
+          }),
+          child18Less: this.fb.group({
+            male: [''],
+            female: [''],
+            transgender: ['']
+          })
+        }),
+        noOfPersonsDispensedSpectaclesRate: this.fb.group({
+          adult18Greater: this.fb.group({
+            male: [''],
+            female: [''],
+            transgender: ['']
+          }),
+          child18Less: this.fb.group({
+            male: [''],
+            female: [''],
+            transgender: ['']
+          })
+        }),
+        noOfPersonsDispensedSpectaclesFullyPaid: this.fb.group({
+          adult18Greater: this.fb.group({
+            male: [''],
+            female: [''],
+            transgender: ['']
+          }),
+          child18Less: this.fb.group({
+            male: [''],
+            female: [''],
+            transgender: ['']
+          })
+        })
+      }),
     })
-    // company:{
-    //   msgAccounts:{line: "@linedemo", whatsapp: "0325554244"},
-    //   socialMedia: {fb: '', tw: '', is: ''}
-    //  } 
     this.outReachForm.patchValue({
       nameOfDonor: 'Alcon'
     })

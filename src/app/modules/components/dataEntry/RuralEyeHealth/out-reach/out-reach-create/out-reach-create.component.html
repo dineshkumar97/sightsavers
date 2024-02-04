@@ -8,8 +8,8 @@
 			<div class="p-fluid p-formgrid grid">
 				<div class="col-12 md:col-4">
 					<label htmlFor="firstname2">District</label>
-					<p-dropdown class="input-line-height-1"   formControlName="district" optionLabel="name" [showClear]="true"
-						placeholder="Select"></p-dropdown>
+					<p-dropdown class="input-line-height-1" formControlName="district" optionLabel="name"
+						[showClear]="true" placeholder="Select"></p-dropdown>
 				</div>
 
 				<div class="col-12 md:col-4">
@@ -19,28 +19,29 @@
 				<div class="col-12 md:col-4">
 					<label htmlFor="firstname2">Name of donor <span class="star-error">*</span></label>
 					<p-dropdown [options]="nameOfDonor" formControlName="nameOfDonor" #cmpDropDown optionValue="id"
-						(onChange)="changeNameOfDoor(cmpDropDown.value)" class="input-line-height-1" optionLabel="name" [showClear]="true"
-						placeholder="Select"></p-dropdown>
+						(onChange)="changeNameOfDoor(cmpDropDown.value)" class="input-line-height-1" optionLabel="name"
+						[showClear]="true" placeholder="Select"></p-dropdown>
 				</div>
 			</div>
 
 			<div class="p-fluid p-formgrid grid">
 				<div class="col-12 md:col-4">
 					<label htmlFor="firstname2">Block <span class="star-error">*</span></label>
-					<p-dropdown class="input-line-height-1"   formControlName="block" optionLabel="name" [showClear]="true"
-						placeholder="Select"></p-dropdown>
+					<p-dropdown class="input-line-height-1" formControlName="block" optionLabel="name"
+						[showClear]="true" placeholder="Select"></p-dropdown>
 				</div>
 
 				<div class="col-12 md:col-4">
 					<label htmlFor="firstname2">Mode of screening <span class="star-error">*</span></label>
-					<p-dropdown [options]="modeoFScreening" formControlName="modeOfScreening" (onChange)="changeModeOfScreening($event)"
-						class="input-line-height-1" optionLabel="name" [showClear]="true"
-						placeholder="Select"></p-dropdown>
+					<p-dropdown [options]="modeoFScreening" formControlName="modeOfScreening"
+						(onChange)="changeModeOfScreening($event)" class="input-line-height-1" optionLabel="name"
+						[showClear]="true" placeholder="Select"></p-dropdown>
 				</div>
 				<div class="col-12 md:col-4">
 					<label htmlFor="firstname2">PWD/ Non PWD <span class="star-error">*</span></label>
-					<p-dropdown [options]="pwdNonPwd" (onChange)="changePWD($event)" formControlName="pwdNonPwd" class="input-line-height-1"
-						optionLabel="name" [showClear]="true" placeholder="Select"></p-dropdown>
+					<p-dropdown [options]="pwdNonPwd" (onChange)="changePWD($event)" formControlName="pwdNonPwd"
+						class="input-line-height-1" optionLabel="name" [showClear]="true"
+						placeholder="Select"></p-dropdown>
 				</div>
 			</div>
 
@@ -371,370 +372,36 @@
 				<p-accordionTab header="Refraction" formGroupName="refraction" *ngIf="isModeOfScreening">
 					<div>
 						<p-panel header="Number of persons refracted" formGroupName="noOfPersonRefracted">
-							<div class="row">
-								<div class="col-md-6" formGroupName="adult18Greater" >
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" formControlName="male"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" formControlName="female"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" formControlName="transgender"  class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6"  formGroupName="child18Less">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" formControlName="male"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" formControlName="female"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" formControlName="transgender"  class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons identified with Uncorrected Refractive Error (URE)" formGroupName="noOfPersonURE">
-							<div class="row">
-								<div class="col-md-6" formGroupName="adult18Greater" >
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" formControlName="male"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" formControlName="female"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" formControlName="transgender"  class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6"  formGroupName="child18Less">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" formControlName="male"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" formControlName="female"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" formControlName="transgender"  class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="Number of persons identified with Uncorrected Refractive Error (URE)"
+							formGroupName="noOfPersonURE">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons received prescription for spectacles"  formGroupName="noOfPersonReceivedSpectacles">
-							<div class="row">
-								<div class="col-md-6" formGroupName="adult18Greater" >
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" formControlName="male"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" formControlName="female"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" formControlName="transgender"  class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6"  formGroupName="child18Less">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" formControlName="male"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" formControlName="female"  class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" formControlName="transgender"  class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="Number of persons received prescription for spectacles"
+							formGroupName="noOfPersonReceivedSpectacles">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 				</p-accordionTab>
-				<p-accordionTab header="Spectacles Dispensed" *ngIf="isModeOfScreening">
+				<p-accordionTab header="Spectacles Dispensed" *ngIf="isModeOfScreening" formGroupName="spectaclesDispensed">
 					<div>
-						<p-panel header="Number of persons dispensed spectacles (free)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="Number of persons dispensed spectacles (free)" formGroupName="noOfPersonsDispensedSpectaclesFree">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons dispensed spectacles (subsidized rate)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="Number of persons dispensed spectacles (subsidized rate)" formGroupName="noOfPersonsDispensedSpectaclesRate">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons dispensed spectacles (fully paid)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="Number of persons dispensed spectacles (fully paid)" formGroupName="noOfPersonsDispensedSpectaclesFullyPaid">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 				</p-accordionTab>
@@ -1119,6 +786,6 @@
 				<button pButton pRipple class="save-btn" (click)="outReachSave()">Save</button>
 			</div>
 		</div>
-		
+
 	</div>
 </div>

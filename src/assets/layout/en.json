@@ -1,0 +1,37 @@
+{
+    "district_name":"District",
+    "district_is_required":"District is required",
+    "date":"Date",
+    "date_is_required":"Date is required",
+    "name_of_donor":"Name of donor",
+    "name_of_donor_is_required":"Name of donor is required",
+    "block":"Block",
+    "block_is_required":"Block is required",
+    "Mode_of_screening":"Mode of screening ",
+    "Mode_of_screening_is_required":"Mode of screening is required",
+    "PWD_Non_PWD":"PWD/ Non PWD",
+    "PWD_Non_PWD_is_required":"PWD/ Non PWD is required",
+    "screening":"Screening",
+    "refraction":"Refraction",
+    "spectacles_dispensed":"Spectacles Dispensed",
+    "number_of_persons_screened":"Number of persons screened",
+    "number_of_persons_referred_asha":"Number of persons referred to camp by ASHA",
+    "number_of_persons_referred_camp":"Number of persons referred to camp by other frontline workers (ANM/ AWW/ AWH)",
+    "number_of_persons_referred_camp_pri":"Referral to camp by community volunteers (PRI and SHG members)",
+    "number_of_persons_referral_camp":"Referral to camp by others",
+    "number_of_persons_refracted":"Number of persons refracted",
+    "number_of_persons_identified_uri":"Number of persons identified with Uncorrected Refractive Error (URE)",
+    "number_of_persons_received_prescription":"Number of persons received prescription for spectacles",
+    "number_of_persons_dispensed_spectacles_free":"Number of persons dispensed spectacles (free)",
+    "number_of_persons_dispensed_spectacles_rate":"Number of persons dispensed spectacles (subsidized rate)",
+    "number_of_persons_dispensed_spectacles_fully":"Number of persons dispensed spectacles (fully paid)",
+    "number_of_persons_spectacles_vc":"Number of persons referred to Vision Center (VC)",
+    "number_of_persons_referred_phc":"Number of persons referred to PHC/ CHC",
+    "number_of_persons_referred_bh":"Number of persons referred to Base Hospital (BH)",
+    "number_of_persons_referred_sdh":"Number of persons referred to District Hospital(DH)/Sub Divisional Hospital(SDH)",
+    "number_of_persons_cataract_dh":"Number of persons identified with Cataract and referred to District Hospital (DH/SDH)",
+    "number_of_persons_cataract_bh":"Number of persons identified with Cataract and referred to Base Hospital (BH)"
+
+
+    
+}

@@ -6,6 +6,7 @@ import { OutReachCreateComponent } from './out-reach-create/out-reach-create.com
 import { OutReachListComponent } from './out-reach-list/out-reach-list.component';
 import { CommonInputModule } from 'src/app/layout/common.module';
 import { AdultChildModule } from '../../../adult-child/adult-child.module';
+import { OutReachService } from './out-reach.service';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AdultChildModule } from '../../../adult-child/adult-child.module';
         OutReachRoutingModule,
         CommonInputModule,
         AdultChildModule
-    ]
+    ],
+    providers: [ OutReachService ]
 })
 export class OutReachModule { }

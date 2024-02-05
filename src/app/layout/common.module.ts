@@ -8,6 +8,8 @@ import { AutoCompleteModule } from "primeng/autocomplete";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccordionModule } from 'primeng/accordion';
 import { PanelModule } from 'primeng/panel';
+import {MessageModule} from 'primeng/message';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [],
   imports: [
@@ -22,7 +24,9 @@ import { PanelModule } from 'primeng/panel';
     AccordionModule,
     PanelModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MessageModule,
+    HttpClientModule
   ],
   exports: [
     CommonModule,
@@ -36,7 +40,10 @@ import { PanelModule } from 'primeng/panel';
     AccordionModule,
     ReactiveFormsModule,
     FormsModule,
-    AutoCompleteModule,]
+    AutoCompleteModule,
+    MessageModule,
+    HttpClientModule
+  ]
 
 })
 export class CommonInputModule { }

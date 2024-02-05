@@ -4,780 +4,191 @@
 <div class="grid">
 	<div class="col-12">
 		<div class="card" [formGroup]="outReachForm">
-
 			<div class="p-fluid p-formgrid grid">
 				<div class="col-12 md:col-4">
-					<label htmlFor="firstname2">District</label>
-					<p-dropdown class="input-line-height-1" formControlName="district" optionLabel="name"
-						[showClear]="true" placeholder="Select"></p-dropdown>
+					<label htmlFor="firstname2">{{jsonFieldValue?.district_name}} <span
+							class="star-error">*</span></label>
+					<p-dropdown class="input-line-height-1" optionLabel="name" formControlName="district" [ngClass]="{'ng-invalid ng-dirty is-invalid' : (outReachForm.get('district')?.touched ||
+					outReachForm.get('district')?.dirty) && !outReachForm.get('district')?.valid }" [showClear]="true"
+						placeholder="Select"></p-dropdown>
+					<span class="invalid-feedback">
+						<span *ngIf="outReachForm.get('district')?.errors?.required">
+							{{jsonFieldValue?.district_is_required }}
+						</span>
+					</span>
 				</div>
 
+
 				<div class="col-12 md:col-4">
-					<label htmlFor="firstname2">Date <span class="star-error">*</span></label>
-					<p-calendar [iconDisplay]="'input'" class="input-line-height-1" [showIcon]="true"></p-calendar>
+					<label htmlFor="firstname2">{{jsonFieldValue?.date}} <span class="star-error">*</span></label>
+					<p-calendar [iconDisplay]="'input'" [ngClass]="{'ng-invalid ng-dirty is-invalid' : (outReachForm.get('date')?.touched ||
+					outReachForm.get('date')?.dirty) && !outReachForm.get('date')?.valid }" formControlName="date"
+						class="input-line-height-1" [showIcon]="true"></p-calendar>
+					<small class="p-error block" *ngIf="outReachForm.get('date')?.invalid && outReachForm.get('date')?.dirty ||
+					 outReachForm.get('date')?.touched">
+						{{jsonFieldValue?.date_is_required}} </small>
 				</div>
 				<div class="col-12 md:col-4">
-					<label htmlFor="firstname2">Name of donor <span class="star-error">*</span></label>
-					<p-dropdown [options]="nameOfDonor" formControlName="nameOfDonor" #cmpDropDown optionValue="id"
-						(onChange)="changeNameOfDoor(cmpDropDown.value)" class="input-line-height-1" optionLabel="name"
-						[showClear]="true" placeholder="Select"></p-dropdown>
+					<label htmlFor="firstname2">{{jsonFieldValue?.name_of_donor}} <span
+							class="star-error">*</span></label>
+					<p-dropdown class="input-line-height-1" optionLabel="name" [options]="nameOfDonor"
+						formControlName="nameOfDonor" #cmpDropDown optionValue="id"
+						(onChange)="changeNameOfDoor(cmpDropDown.value)" [ngClass]="{'ng-invalid ng-dirty is-invalid' : (outReachForm.get('nameOfDonor')?.touched ||
+					outReachForm.get('nameOfDonor')?.dirty) && !outReachForm.get('nameOfDonor')?.valid }" [showClear]="true"
+						placeholder="Select"></p-dropdown>
+					<span class="invalid-feedback">
+						<span *ngIf="outReachForm.get('nameOfDonor')?.errors?.required">
+							{{jsonFieldValue?.name_of_donor_is_required}}
+						</span>
+					</span>
 				</div>
 			</div>
 
 			<div class="p-fluid p-formgrid grid">
 				<div class="col-12 md:col-4">
-					<label htmlFor="firstname2">Block <span class="star-error">*</span></label>
-					<p-dropdown class="input-line-height-1" formControlName="block" optionLabel="name"
-						[showClear]="true" placeholder="Select"></p-dropdown>
+					<label htmlFor="firstname2">{{jsonFieldValue?.block}} <span class="star-error">*</span></label>
+					<p-dropdown class="input-line-height-1" formControlName="block" optionLabel="name" [ngClass]="{'ng-invalid ng-dirty is-invalid' : (outReachForm.get('block')?.touched ||
+					outReachForm.get('block')?.dirty) && !outReachForm.get('block')?.valid }" [showClear]="true"
+						placeholder="Select"></p-dropdown>
+					<span class="invalid-feedback">
+						<span *ngIf="outReachForm.get('block')?.errors?.required">
+							{{jsonFieldValue?.block_is_required}}
+						</span>
+					</span>
 				</div>
 
 				<div class="col-12 md:col-4">
-					<label htmlFor="firstname2">Mode of screening <span class="star-error">*</span></label>
+					<label htmlFor="firstname2">{{jsonFieldValue?.Mode_of_screening}} <span
+							class="star-error">*</span></label>
 					<p-dropdown [options]="modeoFScreening" formControlName="modeOfScreening"
-						(onChange)="changeModeOfScreening($event)" class="input-line-height-1" optionLabel="name"
-						[showClear]="true" placeholder="Select"></p-dropdown>
+						(onChange)="changeModeOfScreening($event)"
+						[ngClass]="{'ng-invalid ng-dirty is-invalid' : (outReachForm.get('modeOfScreening')?.touched || outReachForm.get('modeOfScreening')?.dirty) && !outReachForm.get('modeOfScreening')?.valid }"
+						class="input-line-height-1" optionLabel="name" [showClear]="true"
+						placeholder="Select"></p-dropdown>
+					<span class="invalid-feedback">
+						<span *ngIf="outReachForm.get('modeOfScreening')?.errors?.required">
+							{{jsonFieldValue?.Mode_of_screening_is_required}}
+						</span>
+					</span>
+
 				</div>
 				<div class="col-12 md:col-4">
-					<label htmlFor="firstname2">PWD/ Non PWD <span class="star-error">*</span></label>
+					<label htmlFor="firstname2">{{jsonFieldValue?.PWD_Non_PWD}} <span
+							class="star-error">*</span></label>
 					<p-dropdown [options]="pwdNonPwd" (onChange)="changePWD($event)" formControlName="pwdNonPwd"
 						class="input-line-height-1" optionLabel="name" [showClear]="true"
 						placeholder="Select"></p-dropdown>
+					<small class="p-error block" *ngIf="outReachForm.get('pwdNonPwd')?.invalid && outReachForm.get('pwdNonPwd')?.dirty ||
+						outReachForm.get('pwdNonPwd')?.touched">
+						{{jsonFieldValue?.PWD_Non_PWD_is_required}}</small>
 				</div>
 			</div>
 
 			<p-accordion [activeIndex]="0">
-				<p-accordionTab header="Screening">
+				<p-accordionTab header="{{jsonFieldValue?.screening}}" formGroupName="screening">
 					<div>
-						<p-panel header="Number of persons screened">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber"
-														fdprocessedid="xjos8">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber"
-														id="adult_ss_screening_female-ajax"
-														name="adult_ss_screening_female" fdprocessedid="jhu9a8">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber"
-														id="adult_ss_screening_tg-ajax" name="adult_ss_screening_tg"
-														fdprocessedid="761vfg">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber"
-														id="child_ss_screening_male-ajax" name="child_ss_screening_male"
-														fdprocessedid="4eg3dr">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber"
-														id="child_ss_screening_female-ajax"
-														name="child_ss_screening_female" fdprocessedid="8xay5g">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber"
-														id="child_ss_screening_tg-ajax" name="child_ss_screening_tg"
-														fdprocessedid="v5vsrj">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</p-panel>
-					</div>
-					<div class="mt-3">
-						<p-panel header="Number of persons referred to camp by ASHA">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</p-panel>
-					</div>
-					<div class="mt-3">
-						<p-panel header="Number of persons referred to camp by other frontline workers (ANM/ AWW/ AWH)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber"
-														fdprocessedid="xjos8">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</p-panel>
-					</div>
-					<div class="mt-3">
-						<p-panel header="Referral to camp by community volunteers (PRI and SHG members)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</p-panel>
-					</div>
-					<div class="mt-3">
-						<p-panel header="Referral to camp by others">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</p-panel>
-					</div>
-				</p-accordionTab>
-				<p-accordionTab header="Refraction" formGroupName="refraction" *ngIf="isModeOfScreening">
-					<div>
-						<p-panel header="Number of persons refracted" formGroupName="noOfPersonRefracted">
+						<p-panel header="{{jsonFieldValue?.number_of_persons_screened}}" formGroupName="noOfPersonScreened">
 							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons identified with Uncorrected Refractive Error (URE)"
+						<p-panel header="{{jsonFieldValue?.number_of_persons_referred_asha}}" formGroupName="noOfPersonASHA">
+							<app-adult-child></app-adult-child>
+						</p-panel>
+					</div>
+					<div class="mt-3">
+						<p-panel header="{{jsonFieldValue?.number_of_persons_referred_camp}}" formGroupName="noOfPersonReferredCamp">
+							<app-adult-child></app-adult-child>
+						</p-panel>
+					</div>
+					<div class="mt-3">
+						<p-panel header="{{jsonFieldValue?.number_of_persons_referred_camp_pri}}" formGroupName="referralCampPRI">
+							<app-adult-child></app-adult-child>
+						</p-panel>
+					</div>
+					<div class="mt-3">
+						<p-panel header="{{jsonFieldValue?.number_of_persons_referral_camp}}" formGroupName="referralCampByOthers">
+							<app-adult-child></app-adult-child>
+						</p-panel>
+					</div>
+				</p-accordionTab>
+				<p-accordionTab header="{{jsonFieldValue?.refraction}}" formGroupName="refraction"
+					*ngIf="isModeOfScreening">
+					<div>
+						<p-panel header="{{jsonFieldValue?.number_of_persons_refracted}}"
+							formGroupName="noOfPersonRefracted">
+							<app-adult-child></app-adult-child>
+						</p-panel>
+					</div>
+					<div class="mt-3">
+						<p-panel header="{{jsonFieldValue?.number_of_persons_identified_uri}}"
 							formGroupName="noOfPersonURE">
 							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons received prescription for spectacles"
+						<p-panel header="{{jsonFieldValue?.number_of_persons_received_prescription}}"
 							formGroupName="noOfPersonReceivedSpectacles">
 							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 				</p-accordionTab>
-				<p-accordionTab header="Spectacles Dispensed" *ngIf="isModeOfScreening" formGroupName="spectaclesDispensed">
+				<p-accordionTab header="{{jsonFieldValue?.spectacles_dispensed}}" *ngIf="isModeOfScreening"
+					formGroupName="spectaclesDispensed">
 					<div>
-						<p-panel header="Number of persons dispensed spectacles (free)" formGroupName="noOfPersonsDispensedSpectaclesFree">
+						<p-panel header="{{jsonFieldValue?.number_of_persons_dispensed_spectacles_free}}"
+							formGroupName="noOfPersonsDispensedSpectaclesFree">
 							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons dispensed spectacles (subsidized rate)" formGroupName="noOfPersonsDispensedSpectaclesRate">
+						<p-panel header="{{jsonFieldValue?.number_of_persons_dispensed_spectacles_rate}}"
+							formGroupName="noOfPersonsDispensedSpectaclesRate">
 							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons dispensed spectacles (fully paid)" formGroupName="noOfPersonsDispensedSpectaclesFullyPaid">
+						<p-panel header="{{jsonFieldValue?.number_of_persons_dispensed_spectacles_fully}}"
+							formGroupName="noOfPersonsDispensedSpectaclesFullyPaid">
 							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 				</p-accordionTab>
-				<p-accordionTab header="{{modeOfScreening}}">
+				<p-accordionTab header="{{modeOfScreening}}" formGroupName="referralCamp">
 					<div>
-						<p-panel header="Number of persons referred to Vision Center (VC)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="{{jsonFieldValue?.number_of_persons_spectacles_vc}}"
+							formGroupName="noOfPersonsReferredVC">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons referred to PHC/ CHC">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="{{jsonFieldValue?.number_of_persons_referred_phc}}"
+							formGroupName="noOfPersonsReferredPHC">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons referred to Base Hospital (BH)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="{{jsonFieldValue?.number_of_persons_referred_bh}}"
+							formGroupName="noOfPersonsReferredBH">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel
-							header="Number of persons referred to District Hospital(DH)/Sub Divisional Hospital(SDH)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="{{jsonFieldValue?.number_of_persons_referred_sdh}}"
+							formGroupName="noOfPersonsReferredSDH">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel
-							header="Number of persons identified with Cataract and referred to District Hospital (DH/SDH)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="{{jsonFieldValue?.number_of_persons_cataract_dh}}"
+							formGroupName="noOfPersonsReferredCataractSDH">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 					<div class="mt-3">
-						<p-panel header="Number of persons identified with Cataract and referred to Base Hospital (BH)">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Adult (&gt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="field-heading">
-											<h4>Child (&lt;18 Years)</h4>
-										</div>
-										<div class="row">
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Male</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Female</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-											</div>
-
-											<div class="col-sm-4">
-												<div class="form-group">
-													<label>Transgender</label>
-													<input type="number" min="0" class="form-control onlyNumber">
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<p-panel header="{{jsonFieldValue?.number_of_persons_cataract_bh}}"
+							formGroupName="noOfPersonsReferredCataractBH">
+							<app-adult-child></app-adult-child>
 						</p-panel>
 					</div>
 				</p-accordionTab>

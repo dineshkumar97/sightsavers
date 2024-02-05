@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { constantDetails } from 'src/app/layout/constant';
+import { OutReachService } from '../out-reach.service';
 
 @Component({
   selector: 'app-out-reach-create',
@@ -14,8 +15,8 @@ export class OutReachCreateComponent implements OnInit {
   pwdNonPwd: any;
   nameOfDonor: any;
   outReachForm: FormGroup;
-  outReachForm2: FormGroup;
-  constructor(private fb: FormBuilder) {
+  jsonFieldValue: any;
+  constructor(private fb: FormBuilder, private outReachService: OutReachService) {
   }
   ngOnInit(): void {
     this.initilization();
@@ -24,96 +25,67 @@ export class OutReachCreateComponent implements OnInit {
   public initilization(): void {
     this.loadOutReachForm();
     this.loadModeOfScreening();
+    this.getJSon();
   }
 
+  getJSon() {
+    this.outReachService.getJSon()
+      .subscribe((data:any) => {
+        console.log(data);
+        this.jsonFieldValue = data;
+      });
+  }
+  public getAdultChildForm(): any {
+    return this.fb.group({
+      adult18Greater: this.fb.group({
+        male: [null],
+        female: [null],
+        transgender: [null]
+      }),
+      child18Less: this.fb.group({
+        male: [null],
+        female: [null],
+        transgender: [null]
+      })
+    })
+  }
   public loadOutReachForm(): void {
     this.outReachForm = this.fb.group({
-      district: [''],
-      date: [''],
-      nameOfDonor: [''],
-      block: [''],
-      modeOfScreening: [''],
-      pwdNonPwd: [''],
+      district: [null, Validators.required],
+      date: [null, Validators.required],
+      nameOfDonor: [null, Validators.required],
+      block: [null, Validators.required],
+      modeOfScreening: [null, Validators.required],
+      pwdNonPwd: [null, Validators.required],
+      screening: this.fb.group({
+        noOfPersonScreened: this.getAdultChildForm(),
+        noOfPersonASHA: this.getAdultChildForm(),
+        noOfPersonReferredCamp: this.getAdultChildForm(),
+        referralCampPRI: this.getAdultChildForm(),
+        referralCampByOthers: this.getAdultChildForm(),
+      }),
       refraction: this.fb.group({
-        noOfPersonRefracted: this.fb.group({
-          adult18Greater: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          }),
-          child18Less: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          })
-        }),
-        noOfPersonURE: this.fb.group({
-          adult18Greater: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          }),
-          child18Less: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          })
-        }),
-        noOfPersonReceivedSpectacles: this.fb.group({
-          adult18Greater: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          }),
-          child18Less: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          })
-        })
+        noOfPersonRefracted: this.getAdultChildForm(),
+        noOfPersonURE: this.getAdultChildForm(),
+        noOfPersonReceivedSpectacles: this.getAdultChildForm(),
       }),
       spectaclesDispensed: this.fb.group({
-        noOfPersonsDispensedSpectaclesFree: this.fb.group({
-          adult18Greater: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          }),
-          child18Less: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          })
-        }),
-        noOfPersonsDispensedSpectaclesRate: this.fb.group({
-          adult18Greater: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          }),
-          child18Less: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          })
-        }),
-        noOfPersonsDispensedSpectaclesFullyPaid: this.fb.group({
-          adult18Greater: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          }),
-          child18Less: this.fb.group({
-            male: [''],
-            female: [''],
-            transgender: ['']
-          })
-        })
+        noOfPersonsDispensedSpectaclesFree: this.getAdultChildForm(),
+        noOfPersonsDispensedSpectaclesRate: this.getAdultChildForm(),
+        noOfPersonsDispensedSpectaclesFullyPaid: this.getAdultChildForm()
+      }),
+      referralCamp: this.fb.group({
+        noOfPersonsReferredVC: this.getAdultChildForm(),
+        noOfPersonsReferredPHC: this.getAdultChildForm(),
+        noOfPersonsReferredBH: this.getAdultChildForm(),
+        noOfPersonsReferredSDH: this.getAdultChildForm(),
+        noOfPersonsReferredCataractSDH: this.getAdultChildForm(),
+        noOfPersonsReferredCataractBH: this.getAdultChildForm()
       }),
     })
-    this.outReachForm.patchValue({
-      nameOfDonor: 'Alcon'
-    })
+    // this.outReachForm.patchValue({
+    //   nameOfDonor: 'Alcon'
+    // })
   }
 
   public loadModeOfScreening(): void {

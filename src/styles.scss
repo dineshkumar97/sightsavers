@@ -6,6 +6,7 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+
 * {
   // margin: 0;
   // padding: 0;
@@ -14,6 +15,7 @@
   text-decoration: none;
   transition: 0.3s linear;
 }
+
 :root {
   --poppins: "Poppins", "sans-serif";
   --lato: "Lato", "sans-serif";
@@ -32,10 +34,12 @@
   --edit-icon-grey: #e9ecef;
   --delete-icon-light: #f8f9fa;
   --delete-icon-red: #dc3545;
-  --white-color:#ffffff;
-  --purple-bg:#80276C;
-  --hr-bg:#040609;
+  --white-color: #ffffff;
+  --purple-bg: #80276C;
+  --hr-bg: #040609;
+  --table-head-border:#d1d5db;
 }
+
 html {
   overflow-x: hidden;
 }
@@ -3035,7 +3039,7 @@ a {
   border-radius: 12px;
   transition: background-color .2s, box-shadow .2s;
   text-decoration: none;
-  
+
 }
 
 .layout-menu ul a .layout-menuitem-icon {
@@ -3321,7 +3325,7 @@ blockquote {
 }
 
 hr {
-  border-top: solid var( --hr-bg);
+  border-top: solid var(--hr-bg);
   border-width: 1px 0 0 0;
   margin: 1rem 0
 }
@@ -27708,14 +27712,16 @@ pre.app-code code {
   display: block;
   font-family: monaco, Consolas, monospace
 }
-.p-dropdown-items{
+
+.p-dropdown-items {
   padding-left: 0 !important;
 }
+
 svg.p-dropdown-clear-icon.p-icon {
   display: none;
 }
 
-.save-btn{
+.save-btn {
   width: 100px;
   padding: 6px 30px;
   border-radius: 4px;
@@ -27728,22 +27734,25 @@ svg.p-dropdown-clear-icon.p-icon {
   position: relative;
   display: block;
   margin-bottom: 20px;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-  background-color:var(--purple-bg);
-  color:var(--white-color);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: var(--purple-bg);
+  color: var(--white-color);
 }
+
 .small-box>.inner {
   padding: 10px;
 }
+
 .small-box h3 {
   font-size: 38px;
   font-weight: bold;
   margin: 0 0 10px 0;
   white-space: nowrap;
   padding: 0;
-  margin-top: 0px!important;
-  color:var(--white-color);
+  margin-top: 0px !important;
+  color: var(--white-color);
 }
+
 .small-box .icon {
   -webkit-transition: all .3s linear;
   -o-transition: all .3s linear;
@@ -27753,14 +27762,14 @@ svg.p-dropdown-clear-icon.p-icon {
   right: 10px;
   z-index: 0;
   font-size: 90px;
-  color: rgba(0,0,0,0.15);
+  color: rgba(0, 0, 0, 0.15);
 }
 
 .small-box:hover .icon {
   font-size: 95px;
 }
 
-.font-size-5{
+.font-size-5 {
   font-size: 5rem;
 }
 
@@ -27769,7 +27778,8 @@ svg.p-dropdown-clear-icon.p-icon {
   justify-content: center;
   margin: 0;
 }
-.star-error{
+
+.star-error {
   color: #fe2222;
 }
 
@@ -27786,12 +27796,14 @@ svg.p-dropdown-clear-icon.p-icon {
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
+
 .panel-default {
   border-color: #ddd;
 }
+
 .panel-default>.panel-heading {
   color: #333;
   background-color: #f5f5f5;
@@ -27801,6 +27813,7 @@ svg.p-dropdown-clear-icon.p-icon {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
+
 .panel-body {
   padding: 5px 20px 0px 20px;
 }
@@ -27809,6 +27822,7 @@ svg.p-dropdown-clear-icon.p-icon {
   border-bottom: 1px solid #efefef;
   margin-bottom: 15px;
 }
+
 .field-heading h4 {
   border-bottom: 2px solid #18a488;
   display: inline-block;
@@ -27818,21 +27832,36 @@ svg.p-dropdown-clear-icon.p-icon {
   color: #17a286;
 }
 
-.input-line-height-1{
+.input-line-height-1 {
   line-height: 1.2;
 }
+
 a:hover {
-    color: #0056b3;
-    text-decoration: none !important;
+  color: #0056b3;
+  text-decoration: none !important;
 }
-.p-accordion-tab{
+
+.p-accordion-tab {
   margin-bottom: 10px;
 }
 
-.p-dropdown-items{
-  margin-bottom:0 !important;
+.p-dropdown-items {
+  margin-bottom: 0 !important;
 }
 
-.p-error{
+.p-error {
   margin-top: 5px;
+}
+
+.table-router {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-color: var(--primary-color);
+}
+
+
+thead, tbody, tfoot, tr, td, th{
+  border: 1px solid var(--table-head-border);
 }

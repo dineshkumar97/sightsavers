@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdultChildRoutingModule } from './adult-child-routing.module';
 import { AdultChildComponent } from './adult-child/adult-child.component';
-import { CommonInputModule } from 'src/app/layout/common.module';
+import { CommonInputModule } from 'src/app/layout/commoninput.module';
 
 
 @NgModule({

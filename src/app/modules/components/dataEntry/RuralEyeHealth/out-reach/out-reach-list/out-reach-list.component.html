@@ -1,1 +1,220 @@
-<p> out-reach-list works!</p>
+<div>
+    <h2>Outreach List
+        <!-- <span class="table-router" routerLink="/admin/rural/out-reach/out-reach-list">Outreach List</span> -->
+    </h2>
+</div>
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <div class="p-fluid p-formgrid grid">
+                <div class="col-12 md:col-4">
+                    <label htmlFor="firstname2">Dt </label>
+                    <p-dropdown class="input-line-height-1" optionLabel="name" [showClear]="true"
+                        placeholder="Select"></p-dropdown>
+                </div>
+                <div class="col-12 md:col-4">
+                    <label htmlFor="firstname2">Dt </label>
+                    <p-dropdown class="input-line-height-1" optionLabel="name" [showClear]="true"
+                        placeholder="Select"></p-dropdown>
+                </div>
+                <div class="col-12 md:col-4">
+                    <label htmlFor="firstname2">Dt </label>
+                    <p-dropdown class="input-line-height-1" optionLabel="name" [showClear]="true"
+                        placeholder="Select"></p-dropdown>
+                </div>
+            </div>
+            <div class="card">
+                <p-table class="table-header" [resizableColumns]="true" [autoLayout]="true" [value]="products"
+                    [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [rowsPerPageOptions]="[5, 10, 20]">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th colspan="6" class="text-center" class="text-center">General</th>
+                            <th colspan="30" class="text-center">Screening</th>
+                            <th colspan="18" class="text-center">Refraction</th>
+                            <th colspan="18" class="text-center">Spectacles Dispensed</th>
+                            <th colspan="36" class="text-center"> Referral from camps</th>
+                            <th rowspan="4" class="vertical-align-middle">Actions</th>
+                        </tr>
+                        <tr >
+                            <th rowspan="3" class="vertical-align-middle">S.No</th>
+                            <th rowspan="3" class="vertical-align-middle">Name of donor </th>
+                            <th rowspan="3" class="vertical-align-middle">Date</th>
+                            <th rowspan="3" class="vertical-align-middle">Block</th>
+                            <th rowspan="3" class="vertical-align-middle">Mode of screening </th>
+                            <th rowspan="3" class="vertical-align-middle">PWD/ Non PWD </th>
+                            <th colspan="6" class="text-center">Number of persons screened</th>
+                            <th colspan="6" class="text-center">Number of persons referred to camp by ASHA</th>
+                            <th colspan="6" class="text-center">Number of persons referred to camp by other frontline
+                                workers (ANM/ AWW/
+                                AWH)</th>
+                            <th colspan="6" class="text-center">Referral to camp by community volunteers (PRI and SHG
+                                members)</th>
+                            <th colspan="6" class="text-center">Referral to camp by others</th>
+                            <th colspan="6" class="text-center"> Number of persons refracted </th>
+                            <th colspan="6" class="text-center"> Number of persons identified with Uncorrected
+                                Refractive Error (URE)</th>
+                            <th colspan="6" class="text-center"> Number of persons received prescription for spectacles
+                            </th>
+                            <th colspan="6" class="text-center"> Number of persons dispensed spectacles (free)</th>
+                            <th colspan="6" class="text-center"> Number of persons dispensed spectacles (subsidized
+                                rate)</th>
+                            <th colspan="6" class="text-center"> Number of persons dispensed spectacles (fully paid)
+                            </th>
+                            <th colspan="6" class="text-center">Number of persons referred to Vision Center (VC)</th>
+                            <th colspan="6" class="text-center">Number of persons referred to PHC/ CHC</th>
+                            <th colspan="6" class="text-center"> Number of persons referred to Base Hospital (BH)</th>
+                            <th colspan="6" class="text-center">Number of persons referred to District Hospital(DH)/Sub
+                                Divisional
+                                Hospital(SDH)</th>
+                            <th colspan="6" class="text-center">Number of persons identified with cataract and referred
+                                to District Hospital
+                                (DH/SDH)</th>
+                            <th colspan="6" class="text-center">Number of persons identified with cataract and referred
+                                to Base Hospital
+                                (BH)</th>
+                        </tr>
+                        <tr>
+                            <ng-container *ngFor="let n of numSequence(17)">
+                                <th colspan="3"><span class="font-medium">Adult (&gt;18 Years)</span> </th>
+                                <th colspan="3"> <span class="font-medium">Child (&lt;18 Years)</span></th>
+                            </ng-container>
+                        </tr>
+                        <tr>
+                            <ng-container *ngFor="let n of numSequence(34)">
+                                <th><span class="font-medium">Male</span></th>
+                                <th><span class="font-medium">Female</span></th>
+                                <th><span class="font-medium">Transgender</span></th>
+                            </ng-container>
+                        </tr>
+
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
+                        <tr>
+                            <td>{{rowIndex + 1}}</td>
+                            <td>{{product.nameOfDonor}}</td>
+                            <td>{{product.date}}</td>
+                            <td>{{product.block}}</td>
+                            <td>{{product.modeOfScreening.name}}</td>
+                            <td>{{product.pwdNonPwd.name}}</td>
+                            <td>{{product.screening.noOfPersonScreened?.adult18Greater?.male}}</td>
+                            <td>{{product.screening.noOfPersonScreened?.adult18Greater?.female}}</td>
+                            <td>{{product.screening.noOfPersonScreened?.adult18Greater?.transgender}}</td>
+                            <td>{{product.screening.noOfPersonScreened.child18Less.male}}</td>
+                            <td>{{product.screening.noOfPersonScreened.child18Less.female}}</td>
+                            <td>{{product.screening.noOfPersonScreened.child18Less.transgender}}</td>
+                            <td>{{product.screening.noOfPersonASHA?.adult18Greater?.male}}</td>
+                            <td>{{product.screening.noOfPersonASHA?.adult18Greater?.female}}</td>
+                            <td>{{product.screening.noOfPersonASHA?.adult18Greater?.transgender}}</td>
+                            <td>{{product.screening.noOfPersonASHA.child18Less.male}}</td>
+                            <td>{{product.screening.noOfPersonASHA.child18Less.female}}</td>
+                            <td>{{product.screening.noOfPersonASHA.child18Less.transgender}}</td>
+                            <td>{{product.screening.noOfPersonReferredCamp?.adult18Greater?.male}}</td>
+                            <td>{{product.screening.noOfPersonReferredCamp?.adult18Greater?.female}}</td>
+                            <td>{{product.screening.noOfPersonReferredCamp?.adult18Greater?.transgender}}</td>
+                            <td>{{product.screening.noOfPersonReferredCamp.child18Less.male}}</td>
+                            <td>{{product.screening.noOfPersonReferredCamp.child18Less.female}}</td>
+                            <td>{{product.screening.noOfPersonReferredCamp.child18Less.transgender}}</td>
+
+                            <td>{{product.screening.referralCampPRI?.adult18Greater?.male}}</td>
+                            <td>{{product.screening.referralCampPRI?.adult18Greater?.female}}</td>
+                            <td>{{product.screening.referralCampPRI?.adult18Greater?.transgender}}</td>
+                            <td>{{product.screening.referralCampPRI.child18Less.male}}</td>
+                            <td>{{product.screening.referralCampPRI.child18Less.female}}</td>
+                            <td>{{product.screening.referralCampPRI.child18Less.transgender}}</td>
+
+                            <td>{{product.screening.referralCampByOthers?.adult18Greater?.male}}</td>
+                            <td>{{product.screening.referralCampByOthers?.adult18Greater?.female}}</td>
+                            <td>{{product.screening.referralCampByOthers?.adult18Greater?.transgender}}</td>
+                            <td>{{product.screening.referralCampByOthers.child18Less.male}}</td>
+                            <td>{{product.screening.referralCampByOthers.child18Less.female}}</td>
+                            <td>{{product.screening.referralCampByOthers.child18Less.transgender}}</td>
+
+                            <td>{{product.refraction.noOfPersonRefracted?.adult18Greater?.male}}</td>
+                            <td>{{product.refraction.noOfPersonRefracted?.adult18Greater?.female}}</td>
+                            <td>{{product.refraction.noOfPersonRefracted?.adult18Greater?.transgender}}</td>
+                            <td>{{product.refraction.noOfPersonRefracted.child18Less.male}}</td>
+                            <td>{{product.refraction.noOfPersonRefracted.child18Less.female}}</td>
+                            <td>{{product.refraction.noOfPersonRefracted.child18Less.transgender}}</td>
+
+
+                            <td>{{product.refraction.noOfPersonURE?.adult18Greater?.male}}</td>
+                            <td>{{product.refraction.noOfPersonURE?.adult18Greater?.female}}</td>
+                            <td>{{product.refraction.noOfPersonURE?.adult18Greater?.transgender}}</td>
+                            <td>{{product.refraction.noOfPersonURE.child18Less.male}}</td>
+                            <td>{{product.refraction.noOfPersonURE.child18Less.female}}</td>
+                            <td>{{product.refraction.noOfPersonURE.child18Less.transgender}}</td>
+
+                            <td>{{product.refraction.noOfPersonReceivedSpectacles?.adult18Greater?.male}}</td>
+                            <td>{{product.refraction.noOfPersonReceivedSpectacles?.adult18Greater?.female}}</td>
+                            <td>{{product.refraction.noOfPersonReceivedSpectacles?.adult18Greater?.transgender}}</td>
+                            <td>{{product.refraction.noOfPersonReceivedSpectacles.child18Less.male}}</td>
+                            <td>{{product.refraction.noOfPersonReceivedSpectacles.child18Less.female}}</td>
+                            <td>{{product.refraction.noOfPersonReceivedSpectacles.child18Less.transgender}}</td>
+
+                            
+
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFree?.adult18Greater?.male}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFree?.adult18Greater?.female}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFree?.adult18Greater?.transgender}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFree.child18Less.male}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFree.child18Less.female}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFree.child18Less.transgender}}</td>
+
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesRate?.adult18Greater?.male}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesRate?.adult18Greater?.female}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesRate?.adult18Greater?.transgender}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesRate.child18Less.male}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesRate.child18Less.female}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesRate.child18Less.transgender}}</td>
+
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFullyPaid?.adult18Greater?.male}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFullyPaid?.adult18Greater?.female}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFullyPaid?.adult18Greater?.transgender}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFullyPaid.child18Less.male}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFullyPaid.child18Less.female}}</td>
+                            <td>{{product.spectaclesDispensed.noOfPersonsDispensedSpectaclesFullyPaid.child18Less.transgender}}</td>
+
+                            <td>{{product.referralCamp.noOfPersonsReferredBH?.adult18Greater?.male}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredBH?.adult18Greater?.female}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredBH?.adult18Greater?.transgender}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredBH.child18Less.male}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredBH.child18Less.female}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredBH.child18Less.transgender}}</td>
+
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractSDH?.adult18Greater?.male}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractSDH?.adult18Greater?.female}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractSDH?.adult18Greater?.transgender}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractSDH.child18Less.male}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractSDH.child18Less.female}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractSDH.child18Less.transgender}}</td>
+
+                            <td>{{product.referralCamp.noOfPersonsReferredSDH?.adult18Greater?.male}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredSDH?.adult18Greater?.female}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredSDH?.adult18Greater?.transgender}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredSDH.child18Less.male}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredSDH.child18Less.female}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredSDH.child18Less.transgender}}</td>
+
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractBH?.adult18Greater?.male}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractBH?.adult18Greater?.female}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractBH?.adult18Greater?.transgender}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractBH.child18Less.male}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractBH.child18Less.female}}</td>
+                            <td>{{product.referralCamp.noOfPersonsReferredCataractBH.child18Less.transgender}}</td>
+                        </tr>
+                    </ng-template>
+                    
+                    
+
+                    
+                </p-table>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

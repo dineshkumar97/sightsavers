@@ -10,6 +10,9 @@ import { AccordionModule } from 'primeng/accordion';
 import { PanelModule } from 'primeng/panel';
 import {MessageModule} from 'primeng/message';
 import { HttpClientModule } from '@angular/common/http';
+import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -26,7 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     MessageModule,
-    HttpClientModule
+    HttpClientModule,
+    TableModule,
+    ToastModule
+
   ],
   exports: [
     CommonModule,
@@ -42,7 +48,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     AutoCompleteModule,
     MessageModule,
-    HttpClientModule
+    HttpClientModule,
+    TableModule,
+    ToastModule
   ]
 
 })

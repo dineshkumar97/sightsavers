@@ -1,57 +1,58 @@
 <div class="row" *ngIf="formGroup" [formGroup]="formGroup">
     <div class="col-md-6" formGroupName="adult18Greater">
         <div class="form-group">
-            <div class="field-heading">
-                <h4>Adult (&gt;18 Years)</h4>
-            </div>
+            <h6>
+                Adult (&gt;18 Years)
+            </h6>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Male</label>
-                        <input type="number" min="0"formControlName="male"   class="form-control onlyNumber">
+                        <input type="number" min="0" formControlName="male" placeholder="No of male"
+                            class="form-control onlyNumber">
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Female</label>
-                        <input type="number" min="0" formControlName="female"  class="form-control onlyNumber">
+                        <input type="number" min="0" formControlName="female" placeholder="No of female"
+                            class="form-control onlyNumber">
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Transgender</label>
-                        <input type="number" min="0" formControlName="transgender"  class="form-control onlyNumber">
+                        <input type="number" min="0" formControlName="transgender" placeholder="No of transgender" class="form-control onlyNumber">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6"  formGroupName="child18Less">
+    <div class="col-md-6" formGroupName="child18Less">
         <div class="form-group">
-            <div class="field-heading">
-                <h4>Child (&lt;18 Years)</h4>
-            </div>
+            <h6>
+                Child (&lt;18 Years)
+            </h6>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Male</label>
-                        <input type="number" min="0"formControlName="male"   class="form-control onlyNumber">
+                        <input type="number" min="0" formControlName="male" placeholder="No of male" class="form-control onlyNumber">
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Female</label>
-                        <input type="number" min="0" formControlName="female"  class="form-control onlyNumber">
+                        <input type="number" min="0" formControlName="female" placeholder="No of female" class="form-control onlyNumber">
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Transgender</label>
-                        <input type="number" min="0" formControlName="transgender"  class="form-control onlyNumber">
+                        <input type="number" min="0" formControlName="transgender" placeholder="No of transgender" class="form-control onlyNumber">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

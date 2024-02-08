@@ -11,7 +11,7 @@ import { PanelModule } from 'primeng/panel';
 import {MessageModule} from 'primeng/message';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
-import { ToastModule } from 'primeng/toast';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [],
@@ -31,8 +31,7 @@ import { ToastModule } from 'primeng/toast';
     MessageModule,
     HttpClientModule,
     TableModule,
-    ToastModule
-
+    NgToastModule
   ],
   exports: [
     CommonModule,
@@ -50,7 +49,7 @@ import { ToastModule } from 'primeng/toast';
     MessageModule,
     HttpClientModule,
     TableModule,
-    ToastModule
+    NgToastModule
   ]
 
 })

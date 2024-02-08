@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { constantDetails } from 'src/app/layout/constant';
 import { OutReachService } from '../out-reach.service';
+import { ToasterService } from 'src/app/authservice/toaster.service';
 
 @Component({
   selector: 'app-out-reach-create',
@@ -16,7 +17,8 @@ export class OutReachCreateComponent implements OnInit {
   nameOfDonor: any;
   outReachForm: FormGroup;
   jsonFieldValue: any;
-  constructor(private fb: FormBuilder, private outReachService: OutReachService) {
+  constructor(private fb: FormBuilder, private outReachService: OutReachService,
+    private toaster:ToasterService,) {
   }
   ngOnInit(): void {
     this.initilization();
@@ -110,4 +112,7 @@ export class OutReachCreateComponent implements OnInit {
     console.log(this.outReachForm.value);
   }
 
+  test():void{
+    this.toaster.showSuccess('hello');
+  }
 }

@@ -22,10 +22,11 @@
 
 
 				<div class="col-12 md:col-4">
-					<label htmlFor="firstname2">{{jsonFieldValue?.date}} <span class="star-error">*</span></label>
+					<label>{{jsonFieldValue?.date}} <span class="star-error">*</span></label>
 					<p-calendar [iconDisplay]="'input'" [ngClass]="{'ng-invalid ng-dirty is-invalid' : (outReachForm.get('date')?.touched ||
 					outReachForm.get('date')?.dirty) && !outReachForm.get('date')?.valid }" formControlName="date"
 						class="input-line-height-1" [showIcon]="true"></p-calendar>
+						<!-- <p-calendar inputId="calendar" ></p-calendar> -->
 					<small class="p-error block" *ngIf="outReachForm.get('date')?.invalid && outReachForm.get('date')?.dirty ||
 					 outReachForm.get('date')?.touched">
 						{{jsonFieldValue?.date_is_required}} </small>
